@@ -1,35 +1,74 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { Ionicons } from '@expo/vector-icons';
+import CustomHeader from '../../components/CustomHeader';
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+const TabLayout = () => {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
-  );
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+
+    
+      <CustomHeader 
+          todayScore={85}
+          todosLeft={3}
+          streakValue={10}
+          title="Personal Dashboard" 
+          subtitle="Manage your personal information"
+          rightIcon="notifications-outline"
+          onRightIconPress={() => console.log('Notifications pressed')}
+        />
+
+      <Tabs>
+        <Tabs.Screen 
+          name="(personal)/index" 
+          options={{ 
+            headerShown: false,
+            title: 'Personal',
+            tabBarIcon: ({ focused, color, size }) => (
+              <Ionicons 
+                name={focused ? 'person' : 'person-outline'} 
+                size={size} 
+                color={color} 
+              />
+            )
+          }}
+        />
+          <Tabs.Screen 
+            name="(overview)/index" 
+            options={{ 
+              headerShown: false,
+              title: 'Overview',
+              tabBarIcon: ({ focused, color, size }) => (
+                <Ionicons 
+                  name={focused ? 'stats-chart' : 'stats-chart-outline'} 
+                  size={size} 
+                  color={color} 
+                />
+              )
+            }} 
+          />
+          <Tabs.Screen 
+            name="(settings)/index" 
+            options={{ 
+              headerShown: false,
+              title: 'Settings',
+              tabBarIcon: ({ focused, color, size }) => (
+                <Ionicons 
+                  name={focused ? 'settings' : 'settings-outline'} 
+                  size={size} 
+                  color={color} 
+                />
+              )
+            }} 
+          />
+      </Tabs>
+    </SafeAreaView>
+  )
 }
+
+export default TabLayout
+
+const styles = StyleSheet.create({})
