@@ -1,7 +1,7 @@
 import { Tabs } from "expo-router";
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Ionicons } from '@expo/vector-icons';
-import CustomHeader from '../../components/CustomHeader';
+import CustomHeader from '../components/CustomHeader';
 
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
