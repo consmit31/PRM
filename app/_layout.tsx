@@ -1,7 +1,5 @@
-import { NativeTabs, Icon, Stack, Label, View, Text, Tabs} from 'expo-router'
+import { Stack } from 'expo-router'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-const Tab = createBottomTabNavigator();
 
 const RootLayout = () => {
     return (

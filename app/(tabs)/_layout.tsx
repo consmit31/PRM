@@ -9,8 +9,6 @@ import React from 'react'
 const TabLayout = () => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
-
-    
       <CustomHeader 
           todayScore={85}
           todosLeft={3}
@@ -71,4 +69,8 @@ const TabLayout = () => {
 
 export default TabLayout
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  tabConainer: {
+    backgroundColor: 'orange',
+  }
+})
